@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Page</title>
+    <link rel="icon" href="{{ url_for('static', filename='bg_first.png') }}" type="image/x-icon">
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="bg_first.png") }}');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 a {
+            color: #000; /* Black color */
+            text-decoration: none;
+            font-size: 72px; /* Increased font size */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Light shadow for contrast */
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1><a href="/login_page">Cognitix</a></h1>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Test Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 50px;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .learn-more {
+            background-color: #7e57c2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .traits {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 450px; /* Extended width for the rectangle box */
+        }
+
+        .traits h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .trait-bar {
+            margin: 20px 0;
+        }
+
+        .trait-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .progress-bar {
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 8px;
+            width: 100%;
+            position: relative;
+            margin-top: 5px;
+        }
+
+        .progress {
+            height: 100%;
+            border-radius: 10px;
+            position: absolute;
+        }
+
+        /* Colors for each trait bar */
+        .empathy {
+            background-color: #ff8a65;
+            width: 75%;
+        }
+
+        .adaptability {
+            background-color: #26a69a;
+            width: 65%;
+        }
+
+        .logical-sudoku {
+            background-color: #4caf50;
+            width: 80%;
+        }
+
+        .logical-memory {
+            background-color: #fe5791;
+            width: 70%;
+        }
+
+        .communication {
+            background-color: #7986cb;
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">      
+        <div class="card">
+            <h2>Architect (INTJ-T)</h2>
+            <img src="architect.png" alt="Architect">
+            <p>Architects are imaginative and strategic thinkers, with a plan for everything. These thoughtful tacticians love perfecting the details of life, applying creativity and rationality.</p>
+            <a href="#" class="learn-more">Learn more →</a>
+        </div>
+        <div class="traits">
+            <h3>Your Traits</h3>
+
+            <div class="trait-bar">
+                <div class="trait-label">
+                    <span>Empathy</span>
+                    <span id="empathy-score">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress empathy" id="empathy-progress"></div>
+                </div>
+            </div>
+
+            <div class="trait-bar">
+                <div class="trait-label">
+                    <span>Adaptability</span>
+                    <span id="adaptability-score">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress adaptability" id="adaptability-progress"></div>
+                </div>
+            </div>
+
+            <div class="trait-bar">
+                <div class="trait-label">
+                    <span>Logical Thinking (Sudoku)</span>
+                    <span id="logical-sudoku-score">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress logical-sudoku" id="logical-sudoku-progress"></div>
+                </div>
+            </div>
+
+            <div class="trait-bar">
+                <div class="trait-label">
+                    <span>Logical Thinking (Memory Game)</span>
+                    <span id="logical-memory-score">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress logical-memory" id="logical-memory-progress"></div>
+                </div>
+            </div>
+
+            <div class="trait-bar">
+                <div class="trait-label">
+                    <span>Communication</span>
+                    <span id="communication-score">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress communication" id="communication-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example scores (replace these with actual scores from your backend)
+        const scores = {
+            empathy: 75,
+            adaptability: 65,
+            logicalSudoku: 80,
+            logicalMemory: 70,
+            communication: 70
+        };
+
+        // Update progress bars and scores
+        function updateProgressBars() {
+            document.getElementById('empathy-progress').style.width = `${scores.empathy}%`;
+            document.getElementById('empathy-score').textContent = `${scores.empathy}%`;
+
+            document.getElementById('adaptability-progress').style.width = `${scores.adaptability}%`;
+            document.getElementById('adaptability-score').textContent = `${scores.adaptability}%`;
+
+            document.getElementById('logical-sudoku-progress').style.width = `${scores.logicalSudoku}%`;
+            document.getElementById('logical-sudoku-score').textContent = `${scores.logicalSudoku}%`;
+
+            document.getElementById('logical-memory-progress').style.width = `${scores.logicalMemory}%`;
+            document.getElementById('logical-memory-score').textContent = `${scores.logicalMemory}%`;
+
+            document.getElementById('communication-progress').style.width = `${scores.communication}%`;
+            document.getElementById('communication-score').textContent = `${scores.communication}%`;
+        }
+
+        // Call the function to update the progress bars
+        updateProgressBars();
+    </script>
+</body>
+</html>

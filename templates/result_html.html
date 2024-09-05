@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Speech Recognition Result</title>
+    <style>
+        body {
+            background: url('/static/background.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .next-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Speech Recognition Results</h1>
+        <p>Recognized Text: {{ recognized_text }}</p>
+        <p>Accuracy for Text 1: {{ accuracy1 }}%</p>
+        <p>Accuracy for Text 2: {{ accuracy2 }}%</p>
+        <button class="next-button" onclick="window.location.href='/next'">Next</button>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speech Recognition Result</title>
+    <style>
+        body {
+            background: url('/static/background.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%; /* Adjust width as needed */
+            max-width: 600px; /* Limit maximum width */
+        }
+        .next-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .next-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Speech Recognition Results</h1>
+        <p>Recognized Text: {{ recognized_text }}</p>
+        <p>Accuracy for Text 1: {{ accuracy1 }}%</p>
+        <p>Accuracy for Text 2: {{ accuracy2 }}%</p>
+        <button class="next-button" onclick="window.location.href='/next'">Next</button>
+    </div>
+</body>
+</html>

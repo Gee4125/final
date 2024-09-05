@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kite Story - Page 1</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='1_k.jpeg') }}");
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #audio1-container {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+        }
+        #nextBtn {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            display: none;
+            padding: 12px 24px;
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #nextBtn:hover {
+            background-color: #45a049;
+        }
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 36px;
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+            text-shadow: 2px 2px 4px #000000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kite Story</h1>
+    <div id="audio1-container">
+        <audio id="audio1" controls>
+            <source src="{{ url_for('static', filename='audio.mp3') }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <button id="nextBtn" onclick="nextPage()">Next</button>
+
+    <script>
+        document.getElementById('audio1').addEventListener('ended', function() {
+            document.getElementById('nextBtn').style.display = 'block';
+        });
+
+        function nextPage() {
+            window.location.href = '/page2';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speech Recognition</title>
+    <style>
+        body {
+            background: url('/static/background.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+        }
+        .next-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 30px; /* Increased padding */
+            font-size: 20px; /* Increased font size */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px; /* Rounded corners */
+            cursor: pointer;
+        }
+        .next-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Speech Recognition</h1>
+        <p>Please read one of the following texts aloud:</p>
+
+        <div>
+            <p><strong>{{ expected_text1 }}</strong></p>
+            <button id="start-text1">Start Recording Text 1</button>
+            <button id="stop-text1" disabled>Stop Recording Text 1</button>
+            <div id="result-text1"></div>
+        </div>
+
+        <div>
+            <p><strong>{{ expected_text2 }}</strong></p>
+            <button id="start-text2">Start Recording Text 2</button>
+            <button id="stop-text2" disabled>Stop Recording Text 2</button>
+            <div id="result-text2"></div>
+        </div>
+    </div>
+
+    <button class="next-button" onclick="window.location.href='/result'">Next</button>
+
+    <script>
+        let audioContext;
+        let mediaStream;
+        let recorder;
+        let audioChunks = [];
+        let currentText = '';
+        let resultElementId = '';
+
+        function startRecording(text, resultId) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            mediaStream = navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaStream.then(stream => {
+                let mediaStreamSource = audioContext.createMediaStreamSource(stream);
+
+                recorder = new MediaRecorder(stream);
+                recorder.ondataavailable = event => {
+                    audioChunks.push(event.data);
+                };
+                recorder.onstop = () => {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    const formData = new FormData();
+                    formData.append('audio', audioBlob);
+                    formData.append('text', currentText);
+
+                    fetch('/record', { method: 'POST', body: formData })
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById(resultElementId).innerHTML = data;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                };
+
+                recorder.start();
+                currentText = text;
+                resultElementId = resultId;
+
+                // Disable the appropriate buttons
+                document.getElementById('start-text1').disabled = (text === '{{ expected_text1 }}');
+                document.getElementById('stop-text1').disabled = (text !== '{{ expected_text1 }}');
+                document.getElementById('start-text2').disabled = (text === '{{ expected_text2 }}');
+                document.getElementById('stop-text2').disabled = (text !== '{{ expected_text2 }}');
+            }).catch(error => {
+                console.error('Error accessing media devices.', error);
+            });
+        }
+
+        function stopRecording() {
+            if (recorder) {
+                recorder.stop();
+                mediaStream.getTracks().forEach(track => track.stop());
+
+                // Enable all start buttons and disable all stop buttons
+                document.getElementById('start-text1').disabled = false;
+                document.getElementById('stop-text1').disabled = true;
+                document.getElementById('start-text2').disabled = false;
+                document.getElementById('stop-text2').disabled = true;
+
+                audioChunks = [];
+            }
+        }
+
+        document.getElementById('start-text1').addEventListener('click', () => startRecording('{{ expected_text1 }}', 'result-text1'));
+        document.getElementById('start-text2').addEventListener('click', () => startRecording('{{ expected_text2 }}', 'result-text2'));
+        document.getElementById('stop-text1').addEventListener('click', stopRecording);
+        document.getElementById('stop-text2').addEventListener('click', stopRecording);
+    </script>
+</body>
+</html>

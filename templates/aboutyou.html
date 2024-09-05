@@ -1,0 +1,605 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diplomats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E0F7EF;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #56B289;
+            margin-bottom: 40px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 200px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #56B289;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diplomats</h1>
+        <div class="card-container">
+            <div class="card">
+                <img src="advocate.png" alt="Advocate">
+                <h2>Advocate</h2>
+                <p>INFJ-A / INFJ-T</p>
+                <p>Quiet and mystical, yet very inspiring and tireless idealists.</p>
+            </div>
+            <div class="card">
+                <img src="mediator.png" alt="Mediator">
+                <h2>Mediator</h2>
+                <p>INFP-A / INFP-T</p>
+                <p>Poetic, kind and altruistic people, always eager to help a good cause.</p>
+            </div>
+            <div class="card">
+                <img src="protagonist.png" alt="Protagonist">
+                <h2>Protagonist</h2>
+                <p>ENFJ-A / ENFJ-T</p>
+                <p>Charismatic and inspiring leaders, able to mesmerize their listeners.</p>
+            </div>
+            <div class="card">
+                <img src="campaigner.png" alt="Campaigner">
+                <h2>Campaigner</h2>
+                <p>ENFP-A / ENFP-T</p>
+                <p>Enthusiastic, creative and sociable free spirits, who can always find a reason to smile.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 5px solid #4caf50;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+        }
+
+        .result-item h2 {
+            margin: 0;
+            color: #2e7d32;
+        }
+
+        .result-item p {
+            margin: 10px 0 0 0;
+            color: #555;
+        }
+
+        .result-item ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+        }
+
+        .result-item ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile Assessment Result</h1>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Sample scores
+        const scores = {
+            empathy: 85,
+            adaptability: 90,
+            logicalThinking: 95,
+            communication: 92
+        };
+
+        const profiles = [
+            {
+                name: "Empathic Strategist",
+                summary: "You have an exceptional ability to understand and connect with others' emotions and adapt to new situations with ease. Your logical thinking is robust, and your communication is highly effective. You are exceptionally well-rounded, showing high proficiency in empathy, adaptability, logical reasoning, and communication.",
+                suitableWorkFields: ["Human Resources", "Psychology or Counseling", "Project Management", "Customer Experience Management"]
+            },
+            {
+                name: "Insightful Guide",
+                summary: "You demonstrate a strong ability to connect with others emotionally and adapt to changes fairly well. Your logical thinking skills are strong, and you communicate effectively. Overall, you have a solid balance of empathy, adaptability, logical reasoning, and communication skills.",
+                suitableWorkFields: ["Social Work", "Education or Teaching", "Marketing and Public Relations", "Healthcare"]
+            },
+            {
+                name: "Compassionate Analyst",
+                summary: "You exhibit a deep understanding of others' emotions and strong logical reasoning skills. However, you may find adapting to new situations challenging. Your communication is excellent, making you well-rounded in empathy and logical thinking but with some difficulties in adaptability.",
+                suitableWorkFields: ["Counseling or Therapy", "Research and Analysis", "Support Roles", "Clinical or Medical Fields"]
+            },
+            {
+                name: "Dynamic Coordinator",
+                summary: "You have a good level of empathy and adapt well to new situations. Your logical thinking is average, and your communication skills are effective. You manage change and communicate well, but there’s room for growth in logical reasoning.",
+                suitableWorkFields: ["Sales", "Event Planning", "Customer Service Management", "Administrative Roles"]
+            },
+            {
+                name: "Adaptive Communicator",
+                summary: "You may face challenges in understanding others' emotions but handle changes fairly well. Your logical thinking needs improvement, though your communication is effective. Focus on enhancing empathy and logical reasoning for a more balanced profile.",
+                suitableWorkFields: ["Technical Support", "Administrative Support", "Sales", "Data Entry or Clerical Work"]
+            },
+            {
+                name: "Structured Performer",
+                summary: "You find it difficult to understand others' emotions and adapt to new situations. Your logical thinking and communication skills also need improvement. There is significant room for growth in empathy, adaptability, logical reasoning, and communication.",
+                suitableWorkFields: ["Routine-Based Roles", "Technical Fields", "Support Roles with Clear Guidelines"]
+            }
+        ];
+
+        // Determine the most suitable profile
+        function determineProfile(scores) {
+            if (scores.empathy > 80 && scores.adaptability > 80 && scores.logicalThinking > 90 && scores.communication > 90) {
+                return profiles[0];
+            } else if (scores.empathy > 80 && scores.adaptability > 80) {
+                return profiles[1];
+            } else if (scores.empathy > 80) {
+                return profiles[2];
+            } else if (scores.adaptability > 80) {
+                return profiles[3];
+            } else if (scores.communication > 80) {
+                return profiles[4];
+            } else {
+                return profiles[5];
+            }
+        }
+
+        // Display the result
+        function displayResult() {
+            const profile = determineProfile(scores);
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                <div class="result-item">
+                    <h2>${profile.name}</h2>
+                    <p>${profile.summary}</p>
+                    <h3>Suitable Work Fields:</h3>
+                    <ul>${profile.suitableWorkFields.map(field => `<li>${field}</li>`).join('')}</ul>
+                </div>
+            `;
+        }
+
+        // Initialize the result display
+        displayResult();
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 5px solid #4caf50;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+        }
+
+        .result-item h2 {
+            margin: 0;
+            color: #2e7d32;
+        }
+
+        .result-item p {
+            margin: 10px 0 0 0;
+            color: #555;
+        }
+
+        .result-item ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+        }
+
+        .result-item ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile Assessment Result</h1>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Sample scores
+        const scores = {
+            empathy: 85,
+            adaptability: 90,
+            memory:70,
+            sudoku:89,
+            communication: 92
+        };
+
+        const profiles = [
+            {
+                name: "Empathic Strategist",
+                summary: "You have an exceptional ability to understand and connect with others' emotions and adapt to new situations with ease. Your logical thinking is robust, and your communication is highly effective. You are exceptionally well-rounded, showing high proficiency in empathy, adaptability, logical reasoning, and communication.",
+                suitableWorkFields: ["Human Resources", "Psychology or Counseling", "Project Management", "Customer Experience Management"]
+            },
+            {
+                name: "Insightful Guide",
+                summary: "You demonstrate a strong ability to connect with others emotionally and adapt to changes fairly well. Your logical thinking skills are strong, and you communicate effectively. Overall, you have a solid balance of empathy, adaptability, logical reasoning, and communication skills.",
+                suitableWorkFields: ["Social Work", "Education or Teaching", "Marketing and Public Relations", "Healthcare"]
+            },
+            {
+                name: "Compassionate Analyst",
+                summary: "You exhibit a deep understanding of others' emotions and strong logical reasoning skills. However, you may find adapting to new situations challenging. Your communication is excellent, making you well-rounded in empathy and logical thinking but with some difficulties in adaptability.",
+                suitableWorkFields: ["Counseling or Therapy", "Research and Analysis", "Support Roles", "Clinical or Medical Fields"]
+            },
+            {
+                name: "Dynamic Coordinator",
+                summary: "You have a good level of empathy and adapt well to new situations. Your logical thinking is average, and your communication skills are effective. You manage change and communicate well, but there’s room for growth in logical reasoning.",
+                suitableWorkFields: ["Sales", "Event Planning", "Customer Service Management", "Administrative Roles"]
+            },
+            {
+                name: "Adaptive Communicator",
+                summary: "You may face challenges in understanding others' emotions but handle changes fairly well. Your logical thinking needs improvement, though your communication is effective. Focus on enhancing empathy and logical reasoning for a more balanced profile.",
+                suitableWorkFields: ["Technical Support", "Administrative Support", "Sales", "Data Entry or Clerical Work"]
+            },
+            {
+                name: "Structured Performer",
+                summary: "You find it difficult to understand others' emotions and adapt to new situations. Your logical thinking and communication skills also need improvement. There is significant room for growth in empathy, adaptability, logical reasoning, and communication.",
+                suitableWorkFields: ["Routine-Based Roles", "Technical Fields", "Support Roles with Clear Guidelines"]
+            }
+        ];
+
+        // // Determine the most suitable profile
+        // function determineProfile(scores) {
+        //     if (scores.empathy > 90 && scores.adaptability > 90 && scores.memory > 90 && scores.sudoku >90  && scores.communication > 90) {
+        //         return profiles[0];
+        //     } else if (scores.empathy > 80 && scores.adaptability > 80 && scores.memory > 80 && scores.sudoku >80  && scores.communication > 80) {
+        //         return profiles[1];
+        //     } else if (scores.empathy > 70 && scores.adaptability > 70 && scores.memory > 60 && scores.sudoku >60  && scores.communication > 70) {
+        //         return profiles[2];
+        //     } else if (scores.empathy > 50 && scores.adaptability > 60 && scores.memory > 50 && scores.sudoku >50  && scores.communication > 70) {
+        //         return profiles[3];
+        //     } else if (scores.empathy > 40 && scores.adaptability > 40 && scores.memory > 40 && scores.sudoku >40  && scores.communication > 60) {
+        //         return profiles[4];
+        //     } else {
+        //         return profiles[5];
+        //     }
+        // }
+
+        function determineProfile(scores) {
+    if (scores.empathy > 85 && scores.adaptability > 85 && scores.memory > 85 && scores.sudoku > 85 && scores.communication > 85) {
+        return profiles[0]; // Empathic Strategist
+    } else if (scores.empathy > 75 && scores.adaptability > 75 && scores.memory > 75 && scores.sudoku > 75 && scores.communication > 75) {
+        return profiles[1]; // Insightful Guide
+    } else if (scores.empathy > 65 && scores.adaptability > 65 && scores.memory > 65 && scores.sudoku > 65 && scores.communication > 65) {
+        return profiles[2]; // Compassionate Analyst
+    } else if (scores.empathy > 55 && scores.adaptability > 55 && scores.memory > 55 && scores.sudoku > 55 && scores.communication > 55) {
+        return profiles[3]; // Dynamic Coordinator
+    } else if (scores.empathy > 45 && scores.adaptability > 45 && scores.memory > 45 && scores.sudoku > 45 && scores.communication > 45) {
+        return profiles[4]; // Adaptive Communicator
+    } else {
+        return profiles[5]; // Structured Performer
+    }
+}
+
+
+        // Display the result
+        function displayResult() {
+            const profile = determineProfile(scores);
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                <div class="result-item">
+                    <h2>${profile.name}</h2>
+                    <p>${profile.summary}</p>
+                    <h3>Suitable Work Fields:</h3>
+                    <ul>${profile.suitableWorkFields.map(field => `<li>${field}</li>`).join('')}</ul>
+                </div>
+            `;
+        }
+
+        // Initialize the result display
+        displayResult();
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Assessment</title>
+    <!-- <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('{{ url_for("static", filename="bg_pacha.jpg") }}') no-repeat center center fixed;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 5px solid #4caf50;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+        }
+
+        .result-item h2 {
+            margin: 0;
+            color: #2e7d32;
+        }
+
+        .result-item p {
+            margin: 10px 0 0 0;
+            color: #555;
+        }
+
+        .result-item ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+        }
+
+        .result-item ul li {
+            margin-bottom: 5px;
+        }
+    </style> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('{{ url_for("static", filename="bg_pacha.png") }}') no-repeat center center fixed;
+            background-size: cover; /* This ensures the image covers the entire background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 5px solid #4caf50;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+        }
+
+        .result-item h2 {
+            margin: 0;
+            color: #2e7d32;
+        }
+
+        .result-item p {
+            margin: 10px 0 0 0;
+            color: #555;
+        }
+
+        .result-item ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+        }
+
+        .result-item ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile Assessment Result</h1>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Scores passed from Flask as JSON data
+        const scores = {
+            empathy: {{ empathy_scores | tojson }},
+            adaptability: {{ adaptability_scores | tojson }},
+            memory: {{ memory_score }},
+            sudoku: {{ sudoku_score }},
+            communication: {{ communication_scores | tojson }}
+        };
+
+        const profiles = [
+            {
+                name: "Empathic Strategist",
+                summary: "You have an exceptional ability to understand and connect with others' emotions and adapt to new situations with ease. Your logical thinking is robust, and your communication is highly effective. You are exceptionally well-rounded, showing high proficiency in empathy, adaptability, logical reasoning, and communication.",
+                suitableWorkFields: ["Human Resources", "Psychology or Counseling", "Project Management", "Customer Experience Management"]
+            },
+            {
+                name: "Insightful Guide",
+                summary: "You demonstrate a strong ability to connect with others emotionally and adapt to changes fairly well. Your logical thinking skills are strong, and you communicate effectively. Overall, you have a solid balance of empathy, adaptability, logical reasoning, and communication skills.",
+                suitableWorkFields: ["Social Work", "Education or Teaching", "Marketing and Public Relations", "Healthcare"]
+            },
+            {
+                name: "Compassionate Analyst",
+                summary: "You exhibit a deep understanding of others' emotions and strong logical reasoning skills. However, you may find adapting to new situations challenging. Your communication is excellent, making you well-rounded in empathy and logical thinking but with some difficulties in adaptability.",
+                suitableWorkFields: ["Counseling or Therapy", "Research and Analysis", "Support Roles", "Clinical or Medical Fields"]
+            },
+            {
+                name: "Dynamic Coordinator",
+                summary: "You have a good level of empathy and adapt well to new situations. Your logical thinking is average, and your communication skills are effective. You manage change and communicate well, but there’s room for growth in logical reasoning.",
+                suitableWorkFields: ["Sales", "Event Planning", "Customer Service Management", "Administrative Roles"]
+            },
+            {
+                name: "Adaptive Communicator",
+                summary: "You may face challenges in understanding others' emotions but handle changes fairly well. Your logical thinking needs improvement, though your communication is effective. Focus on enhancing empathy and logical reasoning for a more balanced profile.",
+                suitableWorkFields: ["Technical Support", "Administrative Support", "Sales", "Data Entry or Clerical Work"]
+            },
+            {
+                name: "Structured Performer",
+                summary: "You find it difficult to understand others' emotions and adapt to new situations. Your logical thinking and communication skills also need improvement. There is significant room for growth in empathy, adaptability, logical reasoning, and communication.",
+                suitableWorkFields: ["Routine-Based Roles", "Technical Fields", "Support Roles with Clear Guidelines"]
+            }
+        ];
+
+        function determineProfile(scores) {
+            const avgEmpathy = scores.empathy.reduce((a, b) => a + b, 0) / scores.empathy.length;
+            const avgAdaptability = scores.adaptability.reduce((a, b) => a + b, 0) / scores.adaptability.length;
+            const avgCommunication = scores.communication.reduce((a, b) => a + b, 0) / scores.communication.length;
+
+            const overallAverage = (avgEmpathy + avgAdaptability + scores.memory + scores.sudoku + avgCommunication) / 5;
+
+            if (overallAverage > 85) {
+                return profiles[0];
+            } else if (overallAverage > 75) {
+                return profiles[1];
+            } else if (overallAverage > 65) {
+                return profiles[2];
+            } else if (overallAverage > 55) {
+                return profiles[3];
+            } else if (overallAverage > 45) {
+                return profiles[4];
+            } else {
+                return profiles[5];
+            }
+        }
+
+        function displayResult() {
+            const profile = determineProfile(scores);
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                <div class="result-item">
+                    <h2>${profile.name}</h2>
+                    <p>${profile.summary}</p>
+                    <h3>Suitable Work Fields:</h3>
+                    <ul>${profile.suitableWorkFields.map(field => `<li>${field}</li>`).join('')}</ul>
+                </div>
+            `;
+        }
+
+        // Initialize the result display
+        displayResult();
+    </script>
+</body>
+</html>

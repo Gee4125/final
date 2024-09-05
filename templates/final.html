@@ -1,0 +1,828 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Results</title>
+</head>
+<body>
+    <h1>Final Results for {{ user.first_name }} {{ user.last_name }}</h1>
+
+    <h2>Empathy Scores</h2>
+    <ul>
+        {% for score in empathy_scores %}
+            <li>{{ score.score }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Adaptability Scores</h2>
+    <ul>
+        {% for score in adaptability_scores %}
+            <li>{{ score.score }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Sudoku Scores</h2>
+    <ul>
+        {% for score in sudoku_scores %}
+            <li>{{ score.score }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Memory Scores</h2>
+    <ul>
+        {% for score in memory_scores %}
+            <li>{{ score.score }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Communication Scores</h2>
+    <ul>
+        {% for score in communication_scores %}
+            <li>{{ score.score }} (Type: {{ score.score_type }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+ -->
+
+ <!-- <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Final Results</title>
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             margin: 20px;
+         }
+         h1, h2 {
+             color: #333;
+         }
+         .score-list {
+             list-style-type: none;
+             padding: 0;
+         }
+         .score-list li {
+             margin-bottom: 20px;
+         }
+         .progress-bar-container {
+             position: relative;
+             height: 20px;
+             background-color: #f3f3f3;
+             border-radius: 5px;
+             overflow: hidden;
+         }
+         .progress-bar {
+             position: absolute;
+             height: 100%;
+             line-height: 20px;
+             text-align: center;
+             color: white;
+             border-radius: 5px;
+         }
+ 
+         /* Custom progress bar colors and widths */
+         .empathy {
+             background-color: #ff8a65;
+             width: 75%;
+         }
+         .adaptability {
+             background-color: #26a69a;
+             width: 65%;
+         }
+         .logical-sudoku {
+             background-color: #4caf50;
+             width: 80%;
+         }
+         .logical-memory {
+             background-color: #fe5791;
+             width: 70%;
+         }
+         .communication {
+             background-color: #7986cb;
+             width: 70%;
+         }
+     </style>
+ </head>
+ <body>
+     <h1>Final Results for {{ user.first_name }} {{ user.last_name }}</h1>
+ 
+     <h2>Empathy Scores</h2>
+     <ul class="score-list">
+         {% for score in empathy_scores %}
+             <li>
+                 <div class="progress-bar-container">
+                     <div class="progress-bar empathy" style="width: {{ score.score }}%;">
+                         {{ score.score }}%
+                     </div>
+                 </div>
+             </li>
+         {% endfor %}
+     </ul>
+ 
+     <h2>Adaptability Scores</h2>
+     <ul class="score-list">
+         {% for score in adaptability_scores %}
+             <li>
+                 <div class="progress-bar-container">
+                     <div class="progress-bar adaptability" style="width: {{ score.score }}%;">
+                         {{ score.score }}%
+                     </div>
+                 </div>
+             </li>
+         {% endfor %}
+     </ul>
+ 
+     <h2>Sudoku Scores</h2>
+     <ul class="score-list">
+         {% for score in sudoku_scores %}
+             <li>
+                 <div class="progress-bar-container">
+                     <div class="progress-bar logical-sudoku" style="width: {{ score.score }}%;">
+                         {{ score.score }}%
+                     </div>
+                 </div>
+             </li>
+         {% endfor %}
+     </ul>
+ 
+     <h2>Memory Scores</h2>
+     <ul class="score-list">
+         {% for score in memory_scores %}
+             <li>
+                 <div class="progress-bar-container">
+                     <div class="progress-bar logical-memory" style="width: {{ score.score }}%;">
+                         {{ score.score }}%
+                     </div>
+                 </div>
+             </li>
+         {% endfor %}
+     </ul>
+ 
+     <h2>Communication Scores</h2>
+     <ul class="score-list">
+         {% for score in communication_scores %}
+             <li>
+                 <div class="progress-bar-container">
+                     <div class="progress-bar communication" style="width: {{ score.score }}%;">
+                         {{ score.score }}% (Type: {{ score.score_type }})
+                     </div>
+                 </div>
+             </li>
+         {% endfor %}
+     </ul>
+ 
+ </body>
+ </html> -->
+
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .score-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .score-list li {
+            margin-bottom: 20px;
+        }
+        .progress-bar-container {
+            position: relative;
+            height: 15px;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 0 auto;
+            width: 80%;
+        }
+        .progress-bar {
+            position: absolute;
+            height: 100%;
+            line-height: 15px;
+            text-align: center;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Custom progress bar colors and widths */
+        .empathy {
+            background-color: #ff8a65;
+        }
+        .adaptability {
+            background-color: #26a69a;
+        }
+        .logical-sudoku {
+            background-color: #4caf50;
+        }
+        .logical-memory {
+            background-color: #fe5791;
+        }
+        .communication {
+            background-color: #7986cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Final Results for {{ user.first_name }} {{ user.last_name }}</h1>
+
+        <h2>Empathy Scores</h2>
+        <ul class="score-list">
+            {% for score in empathy_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar empathy" style="width: {{ score.score }}%;">
+                            {{ score.score }}%
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Adaptability Scores</h2>
+        <ul class="score-list">
+            {% for score in adaptability_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar adaptability" style="width: {{ score.score }}%;">
+                            {{ score.score }}%
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Sudoku Scores</h2>
+        <ul class="score-list">
+            {% for score in sudoku_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar logical-sudoku" style="width: {{ score.score }}%;">
+                            {{ score.score }}%
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Memory Scores</h2>
+        <ul class="score-list">
+            {% for score in memory_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar logical-memory" style="width: {{ score.score }}%;">
+                            {{ score.score }}%
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Communication Scores</h2>
+        <ul class="score-list">
+            {% for score in communication_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar communication" style="width: {{ score.score }}%;">
+                            {{ score.score }}% (Type: {{ score.score_type }})
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            justify-content: center; /* Center the box horizontally */
+            align-items: center;    /* Center the box vertically */
+            height: 100vh;          /* Full viewport height */
+        }
+
+        .container {
+            width: 60%;             /* Adjust the width as needed */
+            padding: 20px;
+            border: 1px solid #ddd; /* Add border for the box */
+            border-radius: 10px;    /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+            background-color: #fff;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .score-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .score-list li {
+            margin-bottom: 20px;
+        }
+
+        .progress-bar-container {
+            position: relative;
+            height: 10px;           /* Reduced height */
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 100%;            /* Ensure full width */
+        }
+
+        .progress-bar {
+            position: absolute;
+            height: 100%;
+            line-height: 10px;
+            text-align: center;
+            color: white;
+            border-radius: 5px;
+            font-size: 0.8em;       /* Smaller font size */
+        }
+
+        /* Custom progress bar colors and widths */
+        .empathy {
+            background-color: #ff8a65;
+            width: 75%;
+        }
+
+        .adaptability {
+            background-color: #26a69a;
+            width: 65%;
+        }
+
+        .logical-sudoku {
+            background-color: #4caf50;
+            width: 80%;
+        }
+
+        .logical-memory {
+            background-color: #fe5791;
+            width: 70%;
+        }
+
+        .communication {
+            background-color: #7986cb;
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Final Results for {{ user.first_name }} {{ user.last_name }}</h1>
+
+        <h2>Empathy Scores</h2>
+        <ul class="score-list">
+            {% for score in empathy_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar empathy" style="width: {{ score.score }}%;">
+                            {{ score.score }}%
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Adaptability Scores</h2>
+        <ul class="score-list">
+            {% for score in adaptability_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar adaptability" style="width: {{ score.score }}%;">
+                            {{ score.score }}%
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Sudoku Scores</h2>
+        <ul class="score-list">
+            {% for score in sudoku_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar logical-sudoku" style="width: {{ score.score }}%;">
+                            {{ score.score }}%
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Memory Scores</h2>
+        <ul class="score-list">
+            {% for score in memory_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar logical-memory" style="width: {{ score.score }}%;">
+                            {{ score.score }}%
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Communication Scores</h2>
+        <ul class="score-list">
+            {% for score in communication_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar communication" style="width: {{ score.score }}%;">
+                            {{ score.score }}% (Type: {{ score.score_type }})
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            justify-content: center; /* Center the box horizontally */
+            align-items: center;    /* Center the box vertically */
+            height: 100vh;          /* Full viewport height */
+        }
+
+        .container {
+            width: 50%;             /* Adjusted width for more conciseness */
+            padding: 15px;          /* Reduced padding */
+            border: 1px solid #ddd; /* Border for the box */
+            border-radius: 10px;    /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            background-color: #fff;
+        }
+
+        h1, h2 {
+            color: #333;
+            font-size: 1.2em;       /* Smaller font size for headings */
+        }
+
+        .score-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .score-list li {
+            margin-bottom: 15px;    /* Reduced margin between items */
+            position: relative;
+        }
+
+        .progress-bar-container {
+            position: relative;
+            height: 15px;            /* Reduced height */
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 100%;            /* Ensure full width */
+        }
+
+        .progress-bar {
+            position: absolute;
+            height: 100%;
+            border-radius: 5px;
+            font-size: 1.75em;      /* Smaller font size */
+            z-index: 1;             /* Make sure the progress bar is behind the text */
+        }
+
+        /* Custom progress bar colors and widths */
+        .empathy {
+            background-color: #ff8a65;
+        }
+
+        .adaptability {
+            background-color: #26a69a;
+        }
+
+        .logical-sudoku {
+            background-color: #4caf50;
+        }
+
+        .logical-memory {
+            background-color: #fe5791;
+        }
+
+        .communication {
+            background-color: #7986cb;
+        }
+
+        /* Style for the percentage text */
+        .percentage-text {
+            position: absolute;
+            top: 50%;             /* Center vertically relative to the progress bar */
+            right: 0;             /* Align to the right */
+            transform: translateY(-50%); /* Adjust for exact vertical centering */
+            font-size: 0.8em;     /* Smaller font size */
+            color: #333;          /* Darker color for better readability */
+            z-index: 2;           /* Make sure the text is above the progress bar */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for better visibility */
+            padding: 2px 5px;     /* Optional: Add padding to improve text visibility */
+            border-radius: 3px;   /* Optional: Rounded corners for the background */
+        }
+        
+        .see-more-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .see-more-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Final Results for {{ user.first_name }} {{ user.last_name }}</h1>
+
+        <h2>Empathy Scores</h2>
+        <ul class="score-list">
+            {% for score in empathy_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar empathy" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}%</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Adaptability Scores</h2>
+        <ul class="score-list">
+            {% for score in adaptability_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar adaptability" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}%</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Sudoku Scores</h2>
+        <ul class="score-list">
+            {% for score in sudoku_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar logical-sudoku" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}%</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Memory Scores</h2>
+        <ul class="score-list">
+            {% for score in memory_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar logical-memory" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}%</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Communication Scores</h2>
+        <ul class="score-list">
+            {% for score in communication_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar communication" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}% (Type: {{ score.score_type }})</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{{ url_for('about_you') }}" class="see-more-btn">See More</a>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        background: url('{{ url_for("static", filename="bg_lightpacha.png") }}') no-repeat center center fixed;
+        background-size: cover; /* This ensures the image covers the entire background */
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center; /* Center the box horizontally */
+        align-items: center;    /* Center the box vertically */
+        min-height: 100vh;      /* Full viewport height */
+        box-sizing: border-box;          /* Full viewport height */
+        }
+
+        .container {
+            width: 50%;             /* Adjusted width for more conciseness */
+            padding: 15px;          /* Reduced padding */
+            border: 1px solid #ddd; /* Border for the box */
+            border-radius: 10px;    /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            background-color: #fff;
+        }
+
+        h1, h2 {
+            color: #333;
+            font-size: 1.2em;       /* Smaller font size for headings */
+        }
+
+        .score-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .score-list li {
+            margin-bottom: 15px;    /* Reduced margin between items */
+            position: relative;
+        }
+
+        .progress-bar-container {
+            position: relative;
+            height: 15px;            /* Reduced height */
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 100%;            /* Ensure full width */
+        }
+
+        .progress-bar {
+            position: absolute;
+            height: 100%;
+            border-radius: 5px;
+            font-size: 1.75em;      /* Smaller font size */
+            z-index: 1;             /* Make sure the progress bar is behind the text */
+        }
+
+        /* Custom progress bar colors and widths */
+        .empathy {
+            background-color: #ff8a65;
+        }
+
+        .adaptability {
+            background-color: #26a69a;
+        }
+
+        .logical-sudoku {
+            background-color: #4caf50;
+        }
+
+        .logical-memory {
+            background-color: #fe5791;
+        }
+
+        .communication {
+            background-color: #7986cb;
+        }
+
+        /* Style for the percentage text */
+        .percentage-text {
+            position: absolute;
+            top: 50%;             /* Center vertically relative to the progress bar */
+            right: 0;             /* Align to the right */
+            transform: translateY(-50%); /* Adjust for exact vertical centering */
+            font-size: 0.8em;     /* Smaller font size */
+            color: #333;          /* Darker color for better readability */
+            z-index: 2;           /* Make sure the text is above the progress bar */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for better visibility */
+            padding: 2px 5px;     /* Optional: Add padding to improve text visibility */
+            border-radius: 3px;   /* Optional: Rounded corners for the background */
+        }
+        
+        .see-more-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .see-more-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Final Results for {{ user.first_name }} {{ user.last_name }}</h1>
+
+        <h2>Empathy Scores</h2>
+        <ul class="score-list">
+            {% for score in empathy_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar empathy" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}%</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Adaptability Scores</h2>
+        <ul class="score-list">
+            {% for score in adaptability_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar adaptability" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}%</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Sudoku Scores</h2>
+        <ul class="score-list">
+            {% for score in sudoku_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar logical-sudoku" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}%</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Memory Scores</h2>
+        <ul class="score-list">
+            {% for score in memory_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar logical-memory" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}%</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Communication Scores</h2>
+        <ul class="score-list">
+            {% for score in communication_scores %}
+                <li>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar communication" style="width: {{ score.score }}%;"></div>
+                        <span class="percentage-text">{{ score.score }}% (Type: {{ score.score_type }})</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{{ url_for('about_you') }}" class="see-more-btn">See More</a>
+</body>
+</html>

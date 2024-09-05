@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Page</title>
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="16.png") }}');
+            background-size: cover;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container div {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .form-container input[type="radio"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            accent-color: #007BFF;
+        }
+        .form-container label {
+            flex-grow: 1;
+        }
+        .form-container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="POST">
+            <div>
+                <input type="radio" id="option_a" name="response" value="A">
+                <label for="option_a">A. Refuse to move because you are comfortable in your current role.</label>
+            </div>
+            <div>
+                <input type="radio" id="option_b" name="response" value="B">
+                <label for="option_b">B. Accept the move and take it as an opportunity to gain new experiences.</label>
+            </div>
+            <div>
+                <input type="radio" id="option_c" name="response" value="C">
+                <label for="option_c">C. Complain to your manager about the inconvenience.</label>
+            </div>
+            <div>
+                <input type="radio" id="option_d" name="response" value="D">
+                <label for="option_d">D. Accept the move but do not put effort into learning the new role.</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

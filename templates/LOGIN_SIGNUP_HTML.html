@@ -1,0 +1,350 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff; /* White background */
+        }
+        .container {
+            display: flex;
+            width: 70%;
+            height: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .left-side {
+            flex: 1;
+            background: linear-gradient(135deg, #ff9a9e, #f7a1c1, #d1b2ff, #a0c8d2, #e1c6e1); /* Pastel gradient */
+            background-size: 400% 400%; /* Size for animation */
+            animation: leftSideGradientBG 15s ease infinite; /* Animation for gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes leftSideGradientBG {
+            0% { background-position: 100% 100%; } /* Start from bottom right */
+            50% { background-position: 0% 0%; }   /* End at top left */
+            100% { background-position: 100% 100%; } /* Loop back to starting point */
+        }
+        .left-side .logo {
+            width: 60%;
+            height: auto;
+        }
+        .right-side {
+            flex: 1;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .login-box, .signup-box {
+            width: 80%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        .login-box h2, .signup-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .textbox {
+            margin-bottom: 20px;
+        }
+        .textbox input, .textbox select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #ff9a9e; /* Pastel pink */
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .btn:hover {
+            background-color: #f7a1c1; /* Darker pastel pink */
+        }
+        .signup-btn {
+            background-color: #a0c8d2; /* Pastel blue */
+        }
+        .signup-btn:hover {
+            background-color: #8ab0c7; /* Darker pastel blue */
+        }
+        .or-text {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="{{ url_for('static', filename='IMG-20240801-WA0002.jpg') }}" alt="Cognitive Test Logo" class="logo">
+        </div>
+        <div class="right-side">
+            <div class="login-box" id="login-box">
+                <h2>Login</h2>
+                <form id="login-form" action="{{ url_for('login') }}" method="POST">
+                    <div class="textbox">
+                        <input type="text" placeholder="Gmail ID" name="gmail-id" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="password" placeholder="Password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="or-text">or</div>
+                    <button type="button" class="btn signup-btn" id="show-signup">Sign Up</button>
+                </form>
+            </div>
+            <div class="signup-box" id="signup-box" style="display: none;">
+                <h2>Sign Up</h2>
+                <form id="signup-form" action="{{ url_for('signup') }}" method="POST">
+                    <div class="textbox">
+                        <input type="text" placeholder="First Name" name="first-name" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="text" placeholder="Last Name" name="last-name" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="email" placeholder="Gmail ID" name="gmail-id" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="tel" placeholder="Phone Number" name="phone" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="date" placeholder="Date of Birth" name="dob" required>
+                    </div>
+                    <div class="textbox">
+                        <select name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="textbox">
+                        <input type="text" placeholder="Home Address" name="address" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="password" placeholder="Password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                    <div class="or-text">or</div>
+                    <button type="button" class="btn login-btn" id="show-login">Back to Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('show-signup').addEventListener('click', function() {
+            document.getElementById('login-box').style.display = 'none';
+            document.getElementById('signup-box').style.display = 'block';
+        });
+
+        document.getElementById('show-login').addEventListener('click', function() {
+            document.getElementById('signup-box').style.display = 'none';
+            document.getElementById('login-box').style.display = 'block';
+        });
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+        .container {
+            display: flex;
+            width: 70%;
+            height: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .left-side {
+            flex: 1;
+            background: linear-gradient(135deg, #ff9a9e, #f7a1c1, #d1b2ff, #a0c8d2, #e1c6e1);
+            background-size: 400% 400%;
+            animation: leftSideGradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes leftSideGradientBG {
+            0% { background-position: 100% 100%; }
+            50% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+        .left-side .logo {
+            width: 60%;
+            height: auto;
+        }
+        .right-side {
+            flex: 1;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .login-box, .signup-box {
+            width: 80%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        .login-box h2, .signup-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .textbox {
+            margin-bottom: 20px;
+        }
+        .textbox input, .textbox select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #ff9a9e;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .btn:hover {
+            background-color: #f7a1c1;
+        }
+        .signup-btn {
+            background-color: #a0c8d2;
+        }
+        .signup-btn:hover {
+            background-color: #8ab0c7;
+        }
+        .or-text {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="{{ url_for('static', filename='IMG-20240801-WA0002.jpg') }}" alt="Cognitive Test Logo" class="logo">
+        </div>
+        <div class="right-side">
+            <div class="login-box" id="login-box">
+                <h2>Login</h2>
+                <form id="login-form" action="{{ url_for('login') }}" method="POST">
+                    <div class="textbox">
+                        <input type="email" placeholder="Gmail ID" name="gmail-id" pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" title="Please enter a valid Gmail address (e.g., user@gmail.com)" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="password" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{8,}" title="Password must be at least 8 characters long, contain at least one number, one uppercase letter, one lowercase letter, and one special character." required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="or-text">or</div>
+                    <button type="button" class="btn signup-btn" id="show-signup">Sign Up</button>
+                </form>
+            </div>
+            <div class="signup-box" id="signup-box" style="display: none;">
+                <h2>Sign Up</h2>
+                <form id="signup-form" action="{{ url_for('signup') }}" method="POST">
+                    <div class="textbox">
+                        <input type="text" placeholder="First Name" name="first-name" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="text" placeholder="Last Name" name="last-name" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="email" placeholder="Gmail ID" name="gmail-id" pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" title="Please enter a valid Gmail address (e.g., user@gmail.com)" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="tel" placeholder="Phone Number" name="phone" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="date" placeholder="Date of Birth" name="dob" required>
+                    </div>
+                    <div class="textbox">
+                        <select name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="textbox">
+                        <input type="text" placeholder="Home Address" name="address" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="password" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{8,}" title="Password must be at least 8 characters long, contain at least one number, one uppercase letter, one lowercase letter, and one special character." required>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                    <div class="or-text">or</div>
+                    <button type="button" class="btn login-btn" id="show-login">Back to Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('show-signup').addEventListener('click', function() {
+            document.getElementById('login-box').style.display = 'none';
+            document.getElementById('signup-box').style.display = 'block';
+        });
+
+        document.getElementById('show-login').addEventListener('click', function() {
+            document.getElementById('signup-box').style.display = 'none';
+            document.getElementById('login-box').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

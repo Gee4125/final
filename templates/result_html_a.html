@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="bg_adaptability.png") }}');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .result-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .result-container h1 {
+            margin-bottom: 20px;
+        }
+        .result-container p {
+            margin-bottom: 10px;
+        }
+        .submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3; /* Slightly darker color on hover */
+        }
+        .button-container {
+            margin-top: 20px; /* Add spacing between the result container and button */
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Assessment Results</h1>
+        <p>Adaptability Score: {{ adaptability_score }}</p>
+        <p>Adaptability Rating: {{ adaptability_rating }}</p>
+        <div class="button-container">
+            <form action="/topics" method="get">
+                <button type="submit" class="submit-btn">Go to Main Page</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

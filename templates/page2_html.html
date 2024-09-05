@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kite Story - Page 2</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='2_k.jpeg') }}");
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 100%;
+        }
+        form p {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #results {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            font-size: 18px;
+        }
+         .submit-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #4CAF50; /* Green background */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.button-container {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Kite Story - Questions</h1>
+    <form id="quiz">
+        <p>1. According to the father what kept the kite up?</p>
+        <input type="radio" name="q1" value="a"> The kite itself<br>
+        <input type="radio" name="q1" value="b"> Air<br>
+        <input type="radio" name="q1" value="c"> The string<br>
+        <input type="radio" name="q1" value="d"> Father’s skills<br>
+
+        <p>2. The string helped the kite to ______</p>
+        <input type="radio" name="q2" value="a"> Withstand the pressure<br>
+        <input type="radio" name="q2" value="b"> Break free<br>
+        <input type="radio" name="q2" value="c"> Crash<br>
+        <input type="radio" name="q2" value="d"> Soar high<br>
+
+        <p>3. To realize our full potential, we should ______</p>
+        <input type="radio" name="q3" value="a"> Obey our elders<br>
+        <input type="radio" name="q3" value="b"> Follow a set of rules<br>
+        <input type="radio" name="q3" value="c"> Work hard<br>
+        <input type="radio" name="q3" value="d"> Plan well<br>
+
+        <p>4. A train should go on the ______ to reach its destination.</p>
+        <input type="radio" name="q4" value="a"> Track<br>
+        <input type="radio" name="q4" value="b"> Line<br>
+        <input type="radio" name="q4" value="c"> Road<br>
+        <input type="radio" name="q4" value="d"> Path<br>
+
+        <p>5. Taking freedom in our own hands will lead to ______</p>
+        <input type="radio" name="q5" value="a"> Self-discipline<br>
+        <input type="radio" name="q5" value="b"> Chaos<br>
+        <input type="radio" name="q5" value="c"> A code of conduct<br>
+        <input type="radio" name="q5" value="d"> Freedom<br>
+
+        <p>6. The main idea of the passage is ______</p>
+        <input type="radio" name="q6" value="a"> The art of flying kites<br>
+        <input type="radio" name="q6" value="b"> Father’s advice to his son<br>
+        <input type="radio" name="q6" value="c"> The importance of discipline<br>
+        <input type="radio" name="q6" value="d"> The right to freedom<br>
+    </form>
+    <button onclick="submitAnswers()">Submit Answers</button>
+    <div id="results"></div>
+    <div class="button-container">
+            <form action="/topics" method="get">
+                <button type="submit" class="submit-btn">Go to Main Page</button>
+            </form>
+    </div>
+    <script>
+        function submitAnswers() {
+            const form = document.getElementById('quiz');
+            const formData = new FormData(form);
+            const answers = [];
+            for (let [key, value] of formData.entries()) {
+                answers.push(value);
+            }
+
+            fetch('/submit_answers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ answers: answers })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = `You scored ${data.score} out of ${data.total}`;
+                resultsDiv.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>

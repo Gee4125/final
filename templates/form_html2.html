@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Page 2</title>
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="4.png") }}');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-container div {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .form-container input[type="radio"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            accent-color: #007BFF;
+        }
+        .form-container label {
+            flex-grow: 1;
+        }
+        .form-container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="POST">
+            <div>
+                <input type="radio" id="option_a" name="response" value="A">
+                <label for="option_a">A. Ignore the call because it's too late.</label>
+            </div>
+            <div>
+                <input type="radio" id="option_b" name="response" value="B">
+                <label for="option_b">B. Pick up the call and ask if everything is alright.</label>
+            </div>
+            <div>
+                <input type="radio" id="option_c" name="response" value="C">
+                <label for="option_c">C. Text them asking if they are okay.</label>
+            </div>
+            <div>
+                <input type="radio" id="option_d" name="response" value="D">
+                <label for="option_d">D. Wait until morning to return the call.</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

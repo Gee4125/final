@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Matching Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='memory_css.css') }}">
+</head>
+<style>
+        .submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3; /* Slightly darker color on hover */
+        }
+        .button-container {
+            margin-top: 20px;
+            position: fixed; /* Fix the container to the bottom right */
+            bottom: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            text-align: right;
+        }
+</style>
+<body>
+    <div class="container">
+        <h1>Memory Matching Game</h1>
+        <div id="game-board" class="game-board"></div>
+        <button onclick="startGame()">Start Game</button>
+        <div id="message"></div>
+    </div>
+    <div class="button-container">
+            <form action="/topics" method="get">
+                <button type="submit" class="submit-btn">Go to Main Page</button>
+            </form>
+    </div>
+    <!-- <script src="memory_js.js"></script> -->
+     <script src="{{ url_for('static', filename='memory_js.js') }}"></script>
+</body>
+</html>

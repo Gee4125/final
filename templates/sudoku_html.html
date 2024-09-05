@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3x3 Sudoku</title>
+    <!-- <link rel="stylesheet" href="sudoku_css.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='sudoku_css.css') }}">
+</head>
+<body>
+    <div class="container" data-start-time="" data-step-count="0">
+        <h1>Welcome to 3x3 Sudoku</h1>
+        <p>Beginner Level</p>
+        <p>Fill the grid with numbers 1 to 3 so that each number appears exactly once in each row and column.</p>
+        <div class="grid">
+            <div class="cell"><input type="text" maxlength="1" oninput="trackSteps()"></div>
+            <div class="cell"><input type="text" maxlength="1" oninput="trackSteps()"></div>
+            <div class="cell"><input type="text" maxlength="1" oninput="trackSteps()"></div>
+            <div class="cell"><input type="text" maxlength="1" oninput="trackSteps()"></div>
+            <div class="cell"><input type="text" maxlength="1" oninput="trackSteps()"></div>
+            <div class="cell"><input type="text" maxlength="1" oninput="trackSteps()"></div>
+            <div class="cell"><input type="text" maxlength="1" oninput="trackSteps()"></div>
+            <div class="cell"><input type="text" maxlength="1" oninput="trackSteps()"></div>
+            <div class="cell"><input type="text" maxlength="1" oninput="trackSteps()"></div>
+        </div>
+        <button onclick="checkSudoku()">Check</button>
+        <div id="result"></div>
+        <button onclick="window.location.href='/memory_game'">Next Game</button>
+    </div>
+    <!-- <script src="sudoku_js.js"></script> -->
+    <script src="{{ url_for('static', filename='sudoku_js.js') }}"></script>
+</body>
+</html>

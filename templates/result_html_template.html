@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result Page</title>
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="bg_result.png") }}');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column; /* Align items vertically */
+        }
+        .result-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 20px; /* Space between result box and button */
+        }
+        .submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3; /* Slightly darker color on hover */
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Empathy Assessment Result</h1>
+        <p>Total Score: {{ total_score }}</p>
+        <p>{{ result_text }}</p>
+    </div>
+    <div class="button-container">
+        <form action="/topics" method="get">
+            <button type="submit" class="submit-btn">Go to Main Page</button>
+        </form>
+    </div>
+</body>
+</html>
