@@ -512,10 +512,27 @@
         .result-item ul li {
             margin-bottom: 5px;
         }
+        .download-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
 </head>
 <body>
-    <div class="container">
+    <div div id="result-container" class="container">
         <h1>Profile Assessment Result</h1>
         <div id="result"></div>
     </div>
@@ -600,6 +617,14 @@
 
         // Initialize the result display
         displayResult();
+    </script>
+    <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
+
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('result-container'); // Target the correct element
+            html2pdf().from(element).save('Final_Results.pdf');
+        }
     </script>
 </body>
 </html>
